@@ -1,4 +1,8 @@
 <?php
+
+//Tätä ei tarvitse välttämättä, koska functions.php tiedostossa on funktio, joka avaa tietokannan
+
+
 //Tämä funktio luo tietokanta yhteyden.
 function createDbConnection()
 {
