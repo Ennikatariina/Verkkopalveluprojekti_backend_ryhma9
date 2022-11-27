@@ -18,6 +18,7 @@ function createDbConnection()
         echo "Connected successfully";
         return $conn;
     } catch (PDOException $e) {
+        //pitääkö olla virheen käsittely header('HTTP/1.1 500 Internal Sever Error')?
         echo "Connection failed: " . $e->getMessage();
     }
     return null;
