@@ -3,7 +3,7 @@
 function createDbConnection()
 {
     //Ottaa yhteyden myconf.ini tiedostoon. Jos kansiorakenne muuttuu, niin tätä polkua pitää käydä muuttamassa 
-    $ini = parse_ini_file('myconf.ini');
+    $ini = parse_ini_file('myconf.ini', true);
     //myconf.ini tiedostosta haetaan tiedot ja tallennetaan ne muuttujiin
     $servername = $ini["servername"];
     $username = $ini["username"];
