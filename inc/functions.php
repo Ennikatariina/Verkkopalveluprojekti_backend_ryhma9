@@ -15,7 +15,6 @@ function openDb(): object
     // set the PDO error mode to exception 
     //Tässä laitetaan virheen käsittely päälle. Eli jos tulee virhe, niin se aiheuttaa poikkeuksen ja mennään catchiin. 
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
     return $db;
 }
 
@@ -25,7 +24,7 @@ function selectAsJson(object $db, string $sql): void
     $query = $db->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     header('HTTP/1.1 200 OK');
-    echo json_encode($result, JSON_PRETTY_PRINT);
+    echo json_encode($result);
 }
 //Tämä funktio hakee yhden rivin tietokannasta?
 function selectRowAsJson(object $db, string $sql): void
