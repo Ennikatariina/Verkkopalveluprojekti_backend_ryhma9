@@ -7,4 +7,5 @@ try {
     selectAsJson($db, 'select * from tuoteryhma');
 }catch (PDOException $pdoex){
     returnError($pdoex);
+    echo "Testing";
 }
