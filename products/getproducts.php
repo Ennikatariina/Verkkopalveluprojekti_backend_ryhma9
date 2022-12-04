@@ -14,11 +14,11 @@ try {
     $sql = "select * from tuoteryhma where tuoteryhmanro = $tuoteryhmanro";
     $query = $db->query($sql);
     $category = $query->fetch(PDO::FETCH_ASSOC);
-
+    //fetch palauttaa yhden tietueen.
     $sql = "select * from tuote where tuoteryhmanro = $tuoteryhmanro";
     $query = $db->query($sql);
     $products = $query->fetchAll(PDO::FETCH_ASSOC);
-
+    //fetchAll palauttaa monta tietuetta.
     header('HTTP/1.1 200 OK');
     echo json_encode(array(
        "category" => $category['tuoteryhmanimi'],
