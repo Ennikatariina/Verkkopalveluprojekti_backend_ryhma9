@@ -27,3 +27,5 @@ function createDbConnection()
     }
     return null;
 }
+
+?>
