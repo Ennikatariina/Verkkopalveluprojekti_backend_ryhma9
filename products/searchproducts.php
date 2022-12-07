@@ -12,7 +12,7 @@ $phrase = $parameters[1];
 
 try {
     $db = openDb();
-    $sql = "select * from product where name like '%$phrase%'";
+    $sql = "select * from tuote where tuotenimi like '%$phrase%'";
     selectAsJson($db,$sql);
 }
 catch (PDOException $pdoex){
