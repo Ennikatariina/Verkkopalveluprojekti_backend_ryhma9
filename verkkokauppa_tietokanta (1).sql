@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 05:50 PM
+-- Generation Time: Dec 11, 2022 at 01:29 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -45,6 +45,9 @@ CREATE TABLE `asiakas` (
 -- Dumping data for table `asiakas`
 --
 
+INSERT INTO `asiakas` (`id_asiakas`, `etunimi`, `sukunimi`, `osoite`, `postinro`, `postitmp`, `puhelinnro`, `email`, `kayttajatunnus`, `salasana`, `admin`) VALUES
+(3, 'Siiri', 'Sisilisko', 'esimerkkitie 423', '90770', 'Oulu', '040123456', 'siiri.sisislistko', 'siiri', '$2y$10$30mJjf8xozLY0A9AsHHteuvUFpGZKRtr2ADb5ZQUYaf7HjX4N.rbC', 0),
+(4, 'Enni', 'Esimerkki', 'esimerkkikuja 3', '9000', 'Kempele', '040123456', 'enni.esimerkki', 'enni', '$2y$10$MjUVnB83EbPr1E4m2ijT0uMewjsHJYdKF6ARNw6q1ekqKwz/VeMa6', 0);
 
 -- --------------------------------------------------------
 
@@ -178,7 +181,7 @@ ALTER TABLE `tuoteryhma`
 -- AUTO_INCREMENT for table `asiakas`
 --
 ALTER TABLE `asiakas`
-  MODIFY `id_asiakas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_asiakas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tilaus`
