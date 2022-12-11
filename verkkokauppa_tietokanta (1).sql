@@ -16,7 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+DROP DATABASE IF EXISTS verkkokauppa_tietokanta; /*Lisätty tää ylipyyhkijä*/
 
+CREATE DATABASE verkkokauppa_tietokanta; /*luodaan se tietokanta uudelleen*/
 --
 -- Database: `verkkokauppa_tietokanta`
 --
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `asiakas`
 --
+
 
 CREATE TABLE `asiakas` (
   `id_asiakas` int(11) NOT NULL,
