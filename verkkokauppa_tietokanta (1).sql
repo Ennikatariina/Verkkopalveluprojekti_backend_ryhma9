@@ -29,12 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `asiakas` (
   `id_asiakas` int(11) NOT NULL,
-  `nimi` varchar(128) NOT NULL,
+  `etunimi` varchar(128) NOT NULL,
+  `sukunimi` varchar(128) NOT NULL,
   `osoite` varchar(128) NOT NULL,
   `postinro` varchar(5) NOT NULL,
   `postitmp` varchar(128) NOT NULL,
   `puhelinnro` varchar(64) NOT NULL,
   `email` varchar(64) NOT NULL,
+  `kayttajatunnus` varchar(64) NOT NULL,
+  `salasana` varchar(64) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,8 +45,6 @@ CREATE TABLE `asiakas` (
 -- Dumping data for table `asiakas`
 --
 
-INSERT INTO `asiakas` (`id_asiakas`, `nimi`, `osoite`, `postinro`, `postitmp`, `puhelinnro`, `email`, `admin`) VALUES
-(1, 'Teppo Testaaja', 'Koulutie 1', '00001', 'Helsinki', '0501234567', 'teppo.testaaja@testi.com', 0);
 
 -- --------------------------------------------------------
 
