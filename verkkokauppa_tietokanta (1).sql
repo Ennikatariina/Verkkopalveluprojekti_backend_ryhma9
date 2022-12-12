@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 01:29 PM
+-- Generation Time: Dec 12, 2022 at 10:22 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -16,9 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-DROP DATABASE IF EXISTS verkkokauppa_tietokanta; /*Lisätty tää ylipyyhkijä*/
 
-CREATE DATABASE verkkokauppa_tietokanta; /*luodaan se tietokanta uudelleen*/
 --
 -- Database: `verkkokauppa_tietokanta`
 --
@@ -28,7 +26,6 @@ CREATE DATABASE verkkokauppa_tietokanta; /*luodaan se tietokanta uudelleen*/
 --
 -- Table structure for table `asiakas`
 --
-
 
 CREATE TABLE `asiakas` (
   `id_asiakas` int(11) NOT NULL,
@@ -113,7 +110,7 @@ INSERT INTO `tuote` (`tuotenro`, `tuotenimi`, `kuvaus`, `kuvannimi`, `hinta`, `t
 (14, 'Omenapiirakka', 'Lämmin palanen omenapiirakkaa.', 'tuote_omenapiirakka.jpg', '4.00', 3),
 (15, 'Prezel', 'Suolainen makupala.', 'tuote_prezel.jpg', '3.00', 4),
 (16, 'Rooibos', 'Maukas rooibostee.', 'tuote_rooibos.jpg', '2.50', 2),
-(17, 'Suklaacookie', 'Suklainen cookie.', 'tuote_suklaacookie', '2.00', 3),
+(17, 'Suklaacookie', 'Suklainen cookie.', 'tuote_suklaacookie.jpg', '2.00', 3),
 (18, 'Täytetty leipä', 'Leipä omavalintaisilla täytteillä.', 'tuote_tayteleipa.jpg', '4.50', 4),
 (19, 'Vihreä tee', 'Lämmin kupillinen vihreää teetä.', 'tuote_vihreatee.jpg', '2.50', 2),
 (20, 'Yrttitee', 'Tuoreilla yrteillä maustettu haudutettu tee.', 'tuote_yrttitee.jpg', '2.00', 2);
