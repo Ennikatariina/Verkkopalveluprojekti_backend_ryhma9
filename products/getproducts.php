@@ -6,7 +6,7 @@ require_once "../inc/headers.php";
 $uri = parse_url(filter_input(INPUT_SERVER,'PATH_INFO'),PHP_URL_PATH); //luetaan osoite. Frontista tuleva kutsu.
 $parameters = explode('/',$uri); //"hajottaa osoiteen palasiksi"
 //print_r($parameters); //tällä voi tarkistaa mitä parameters tulostaa
-$tuoteryhmanro = $parameters[1]; //lukee kauttaviivalla erotetun numeron eli viimeisen numeron. Herjaa edelleen tätä rivi.
+$tuoteryhmanro = $parameters[1]; //lukee kauttaviivalla erotetun numeron eli viimeisen numeron. Herjaa, joten lisää tuotekategorian numero perään selain rivillä.
 
 
 
