@@ -3,7 +3,7 @@
 //Palvelua voi kutsua http://localhost:3000 osoitteesta
 header('Access-Control-Allow-Origin: http://localhost:3000');
 //Tällä asetetaan palautettavan tiedon tyypiksi json
-header('Content-Type: application:json');
+header('Content-Type: *');
 //Nämä php metodit ovat sallittuja:GET, POST, put, DELETE, OPTIONS
 header('Access-Control-Allow-Methods: GET, POST, put, DELETE, OPTIONS');
 //Istunto tietoja voidaan lähettää backendin ja frontin  välillä. Liittyy kirjautumiseen
@@ -18,5 +18,6 @@ if($_SERVER['REQUEST_METHOD']==='OPTIONS'){
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 if(isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
     header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_RESQUEST_HEADERS']}");
+http_response_code(200);
 exit(0);
 }
