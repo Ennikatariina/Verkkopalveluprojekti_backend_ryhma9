@@ -23,7 +23,7 @@ if(!isset($user ->kayttajatunnus) || !isset($user ->salasana)){
 
 registerUser($user->id_asiakas, $user->etunimi, $user->sukunimi, $user->osoite, $user->postinro, $user->postitmp, $user->puhelinnro, $user->email, $user->kayttajatunnus, $user->salasana);
 
-$_SESSION['username']=$user->kayttajatunnus;
+$_SESSION['kayttajatunnus']=$user->kayttajatunnus;
 
 http_response_code('200');
 echo "User $user->etunimi registered";
