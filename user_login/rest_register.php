@@ -18,12 +18,16 @@ if(!isset($user ->kayttajatunnus) || !isset($user ->salasana)){
 //tutkitaan onko käyttäjätunnus järkevä
 if(preg_match('/^[a-Za-Z0-9]+$/', $_POST["kayttajatunnus"])== 0){
     echo "Käyttäjätunnus ei kelpaa.";
+} else {
+    echo "Hyvä juttu!";
 }
 
 //tutkitaan onko salasanassa riittävästi merkkejä
 
-if(strlen($_POST["salasana"]) <= 5) {
+if(strlen($_POST["salasana"])<= 5) {
     echo "Salasanan tulee sisältää vähintään 5 merkkiä.";
+} else {
+    echo "Salasana hyväksytty";
 }
 
 
