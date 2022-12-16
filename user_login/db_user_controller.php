@@ -9,7 +9,6 @@ require('../inc/functions.php');
  function registerUser($id_asiakas, $etunimi, $sukunimi, $osoite, $postinro, $postitmp, $puhelinnro, $email, $kayttajatunnus, $salasana){
     $db= openDb();
     //Tässä vaiheessa pitäisi testata, että käyttäjätunnut ja salasana ovat oikeanlaisia
-
     $salasana=password_hash($salasana, PASSWORD_DEFAULT, ["cost" => 16]); //tekee salasanan vaikeammaksi hakkeroida
     $sql= "INSERT INTO asiakas (id_asiakas, etunimi, sukunimi, osoite, postinro, postitmp, puhelinnro, email, kayttajatunnus, salasana) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $statement =$db->prepare($sql);
