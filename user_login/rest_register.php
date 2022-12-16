@@ -10,15 +10,21 @@ $user=json_decode($body);
 
 //Onko syötteitä asetettu
 if(!isset($user ->kayttajatunnus) || !isset($user ->salasana)){
-    http_response_code("400");
+    http_response_code("401");
     echo "Käyttäjää ei löytynyt. ";
     return;
 }
 
-//tähän pitäisi tehdä funktio, joka tutkii onko käyttäjätunnus järjevä ja
-//onko salasanassa rittävämäärä merkkejä ja oikeanlaisia merkkejä
-// Jos nämä eivät ole kunnossa, ilmoitetaan käyttäjällä siitä
-//Ilman tätä funktiot oletetaan, että käyttäjä antama käyttäjätunnus ja salasana ovat aina oikeita
+//tutkitaan onko käyttäjätunnus järkevä
+if(preg_match('/^[a-Za-Z0-9]+$/', $_POST["kayttajatunnus"])== 0){
+    echo "Käyttäjätunnus ei kelpaa.";
+}
+
+//tutkitaan onko salasanassa riittävästi merkkejä
+
+if(strlen($_POST["salasana"]) <= 5) {
+    echo "Salasanan tulee sisältää vähintään 5 merkkiä.";
+}
 
 
 registerUser($user->id_asiakas, $user->etunimi, $user->sukunimi, $user->osoite, $user->postinro, $user->postitmp, $user->puhelinnro, $user->email, $user->kayttajatunnus, $user->salasana);
