@@ -40,7 +40,8 @@ function selectRowAsJson(object $db, string $sql): void
 function executeInsert(object $db, string $sql): int
 {
     $query = $db->query($sql);
-    return $db->lastInert();
+    //return $db->lastInert(); //kuuluuko olla insert?
+    return $db->lastInsertId();
 }
 
 //Virheenkäsittely. Saadaan parametrina tietokantapoikkeus ja se muutetaan json. exitilla lopetetaan. 
