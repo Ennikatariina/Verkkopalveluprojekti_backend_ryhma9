@@ -12,9 +12,9 @@ if(isset($_SESSION['kayttajatunnus'])){
     return;
 }
 
-//Onko asetettu post-parametria: onko määritelty uname parametria ja pw parametria
+//Onko asetettu post-parametria: onko määritelty kayttajatunnus parametria ja salasana parametria
 if(!isset($_POST['kayttajatunnus']) || !isset($_POST['salasana'])){
-    http_response_code("401");
+    http_response_code(401);
     echo "User not defined. Give valid username and password rest_login";
     return;
 }
