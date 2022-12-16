@@ -1,23 +1,27 @@
-<?php
-//http otsakkeita
-//Palvelua voi kutsua http://localhost:3000 osoitteesta
-header('Access-Control-Allow-Origin: http://localhost:3000');
-//Tällä asetetaan palautettavan tiedon tyypiksi json
-header('Content-Type: *');
-//Nämä php metodit ovat sallittuja:GET, POST, put, DELETE, OPTIONS
-header('Access-Control-Allow-Methods: GET, POST, put, DELETE, OPTIONS');
-//Istunto tietoja voidaan lähettää backendin ja frontin  välillä. Liittyy kirjautumiseen
-header('Access-Control-Allow-Credentials:true');
-header('Access-Control-Allow-Headers:Accept, Content-Type', 'Access-Control-Allow-Header');
-header('Access-Control-Max-Age:3600');
 
-//jos selain tekee esikyselyn eli lähettää http metodille options esikyselyn
-//Prelight-kyselyjen käsitely tulee tehdä näin, koska muuten mahdollisia virheilmoituksia ei palauteta välttämättä frontendiin.
-if($_SERVER['REQUEST_METHOD']==='OPTIONS'){
-    if(isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-if(isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-    header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_RESQUEST_HEADERS']}");
-http_response_code(200);
-exit(0);
+
+<?php
+// Allow from any origin
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
+    // you want to allow, and if so:
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 86400');    // cache for 1 day
 }
+
+// Access-Control headers are received during OPTIONS requests
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+        // may also be using PUT, PATCH, HEAD etc
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+        header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+    exit;
+
+}
+
+?>

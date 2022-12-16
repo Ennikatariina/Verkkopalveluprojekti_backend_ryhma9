@@ -31,8 +31,8 @@ require('../inc/functions.php');
 
 //tutkitaan onko salasana oikea
 if(isset($hashedpw) && password_verify($pw, $hashedpw)){
-    echo "Tunnistautuminen onnistui!";
+    return $uname;
 } else {
-    echo "Kirjautuminen epäonnistui!";
+    return null;
 }
  }
