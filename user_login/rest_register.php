@@ -16,16 +16,19 @@ if(!isset($user ->kayttajatunnus) || !isset($user ->salasana)){
 }
 
 //tutkitaan onko käyttäjätunnus järkevä
-//if(preg_match('/^[a-Za-Z0-9]+$/', $_POST["kayttajatunnus"])== 0){
-  //  echo "Käyttäjätunnus ei kelpaa.";
-    //return;
-//}
+if(preg_match('/^[a-Za-Z0-9]+$/', $_POST["kayttajatunnus"])== 0){
+    echo "Käyttäjätunnus ei kelpaa.";
+} else {
+    echo "Hyvä juttu!";
+}
 
 //tutkitaan onko salasanassa riittävästi merkkejä
 
-//if(strlen($_POST["salasana"]) <= 5) {
-  //  return "Salasanan tulee sisältää vähintään 5 merkkiä.";
-//}
+if(strlen($_POST["salasana"])<= 5) {
+    echo "Salasanan tulee sisältää vähintään 5 merkkiä.";
+} else {
+    echo "Salasana hyväksytty";
+}
 
 
 registerUser($user->id_asiakas, $user->etunimi, $user->sukunimi, $user->osoite, $user->postinro, $user->postitmp, $user->puhelinnro, $user->email, $user->kayttajatunnus, $user->salasana);
