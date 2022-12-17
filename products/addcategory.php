@@ -10,6 +10,7 @@ $name = filter_var($input->tuoteryhmanimi,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 try {
     $db = openDb();
+    //lisätään tuoteryhmä 
     //$sql = "insert into category (name) values ('$name')";
     $sql = "insert into tuoteryhma (tuoteryhmanimi) values ('$name')";
     executeInsert($db,$sql);
@@ -22,3 +23,6 @@ catch(PDOException $pdoex) {
 }
 
 //tämän pitäisi lukea tuoteryhmän nimi ja lisätä tiedot tietokantaan.
+//tämä toiminto siis adminille
+
+
