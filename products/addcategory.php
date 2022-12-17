@@ -14,7 +14,7 @@ try {
     //$sql = "insert into category (name) values ('$name')";
     $sql = "insert into tuoteryhma (tuoteryhmanimi) values ('$name')";
     executeInsert($db,$sql);
-    //tulostaa jsonina tuoteryhmanro: ja tuoteryhmanimi:
+    //tulostaa jsonina viimeisimmän tuoteryhmanro: ja tuoteryhmanimi:
     //$data = array('id' => $db->lastInsertId(), 'name' => $name);
     $data = array('tuoteryhmanro' => $db->lastInsertId(), 'tuoteryhmanimi' => $name);
     print json_encode($data);
