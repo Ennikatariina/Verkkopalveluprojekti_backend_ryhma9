@@ -13,6 +13,7 @@ require('../inc/functions.php');
     $sql= "INSERT INTO asiakas (id_asiakas, etunimi, sukunimi, osoite, postinro, postitmp, puhelinnro, email, kayttajatunnus, salasana) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $statement =$db->prepare($sql);
     $statement ->execute(array($id_asiakas, $etunimi, $sukunimi, $osoite, $postinro, $postitmp, $puhelinnro, $email, $kayttajatunnus, $salasana));
+    return;
     //Tässä pitäisi olla try cath rakenne, jos jokin menee pieleen. Nyt oletetaan että kaikki menee hyvin. 
  }
 

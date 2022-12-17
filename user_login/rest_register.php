@@ -16,24 +16,32 @@ if(!isset($user ->kayttajatunnus) || !isset($user ->salasana)){
 }
 
 //tutkitaan onko käyttäjätunnus järkevä
-if(preg_match('/^[a-Za-Z0-9]+$/', $_POST["kayttajatunnus"])== 0){
+if(preg_match('/^[a-zA-Z0-9]+$/', $user->kayttajatunnus)== 0){
     echo "Käyttäjätunnus ei kelpaa.";
-} else {
-    echo "Hyvä juttu!";
-}
+    return;
+} 
 
 //tutkitaan onko salasanassa riittävästi merkkejä
 
-if(strlen($_POST["salasana"])<= 5) {
+if(strlen($user->salasana)<= 5) {
     echo "Salasanan tulee sisältää vähintään 5 merkkiä.";
-} else {
-    echo "Salasana hyväksytty";
-}
+    return;
+} 
 
+$id_asiakas= strip_tags($user->id_asiakas);
+$etunimi= strip_tags($user->etunimi);
+$sukunimi= strip_tags($user->sukunimi);
+$osoite= strip_tags($user->osoite);
+$postinro= strip_tags($user->postinro);
+$postitmp= strip_tags($user->postitmp);
+$puhelinnro= strip_tags($user->puhelinnro);
+$email= strip_tags($user->email);
+$kayttajatunnus= strip_tags($user->kayttajatunnus);
+$salasana= strip_tags($user->salasana);
 
-registerUser($user->id_asiakas, $user->etunimi, $user->sukunimi, $user->osoite, $user->postinro, $user->postitmp, $user->puhelinnro, $user->email, $user->kayttajatunnus, $user->salasana);
+registerUser($id_asiakas, $etunimi, $sukunimi, $osoite, $postinro, $postitmp, $puhelinnro, $email, $kayttajatunnus, $salasana);
 
-$_SESSION['kayttajatunnus']=$user->kayttajatunnus;
+$_SESSION['kayttajatunnus']=$kayttajatunnus;
 
 http_response_code('200');
 echo "User $user->etunimi registered";
