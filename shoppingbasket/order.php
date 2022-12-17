@@ -8,6 +8,13 @@ $dataObject =json_decode($body);
 $kayttajatunnus=strip_tags("jussi");
 //$kayttajatunnus=$_SESSION['kayttajatunnus'];
 
+
+if(!isset($_POST['kayttajatunnus'])){
+    http_response_code(401);
+    echo "User not defined. Give valid username";
+    return;
+}
+
 //Määritetään muuttujat
 $tilaupvm=date("Y/m/d");
 
