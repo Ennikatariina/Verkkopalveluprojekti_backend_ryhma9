@@ -9,11 +9,14 @@ require('../inc/functions.php');
  function registerUser($id_asiakas, $etunimi, $sukunimi, $osoite, $postinro, $postitmp, $puhelinnro, $email, $kayttajatunnus, $salasana){
     $db= openDb();
     //Tässä vaiheessa pitäisi testata, että käyttäjätunnut ja salasana ovat oikeanlaisia
+    try{
     $salasana=password_hash($salasana, PASSWORD_DEFAULT, ["cost" => 16]); //tekee salasanan vaikeammaksi hakkeroida
     $sql= "INSERT INTO asiakas (id_asiakas, etunimi, sukunimi, osoite, postinro, postitmp, puhelinnro, email, kayttajatunnus, salasana) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $statement =$db->prepare($sql);
     $statement ->execute(array($id_asiakas, $etunimi, $sukunimi, $osoite, $postinro, $postitmp, $puhelinnro, $email, $kayttajatunnus, $salasana));
-    return;
+    }
+    catch (PDOException $e)
+    {echo "Somerthing went wrong"; }
     //Tässä pitäisi olla try cath rakenne, jos jokin menee pieleen. Nyt oletetaan että kaikki menee hyvin. 
  }
 
