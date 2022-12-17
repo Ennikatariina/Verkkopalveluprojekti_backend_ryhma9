@@ -12,14 +12,28 @@ $kayttajatunnus=strip_tags("jussi");
 $tilaupvm=date("Y/m/d");
 
 //Haketaan tietokannasta id_asiakas käyttäjätunnuksesta
-$id_asiakas= checkId_asiakas ($kayttajatunnus);
+try {
+    $db = openDb();
+    $id_asiakas= checkId_asiakas ($db, $kayttajatunnus);
+}catch(PDOException $pdoex) {
+    returnError($pdoex);
+}
 
 //Tallentaan tilaustauluun tilauksen
 //ja ottaa sieltä viimeisen tilausen tilausnumeron
-$viimeinenTilausnro=insertTilaus($tilaupvm, $id_asiakas);
+try {
+    $db = openDb();
+    $viimeinenTilausnro=insertTilaus($db, $tilaupvm, $id_asiakas);
+}catch(PDOException $pdoex) {
+    returnError($pdoex);
+}
 
 //Tallentaa tilausrivi tauluun tilausen tiedot
-insertTilausrivi($viimeinenTilausnro, $dataObject);
-
+try {
+    $db = openDb();
+    insertTilausrivi($db, $viimeinenTilausnro, $dataObject);
+}catch(PDOException $pdoex) {
+    returnError($pdoex);
+}
 
 ?>
