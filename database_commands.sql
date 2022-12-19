@@ -243,4 +243,4 @@ viesti VARCHAR(1000) NOT NULL
 --Constrains for table yhteyslomake
 
 ALTER TABLE yhteyslomake
-MODIFY puhnro INTEGER(15);
+MODIFY puhnro INTEGER(15); --removed not null
