@@ -23,7 +23,8 @@ try {
     //järjestys tuotetaulun mukaan.
     executeInsert($db,$sql);
     //$data = array('id' => $db->lastInsertId(),'name' => $name,'price' => $price, 'image' => 'placeholder.png'); //Lisätty kuvaus.
-    $data = array('tuotenro' => $db->lastInsertId(),'tuotenimi' => $name,'kuvaus'=> $description,'hinta' => $price, 'kuvannimi' => 'varakuva.jpg');
+    $data = array('tuotenro' => $db->lastInsertId(),'tuotenimi' => $name,'hinta' => $price, 'kuvannimi' => 'varakuva.jpg');
+   //'kuvaus'=> $description,
     print json_encode($data);
 }
 catch (PDOException $pdoex) {
