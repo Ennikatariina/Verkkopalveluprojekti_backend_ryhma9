@@ -3,7 +3,7 @@
 require_once "../inc/functions.php";
 require_once "../inc/headers.php";
 
-//tämä on kesken. kuviin lisätty 'varakuva.jpg' jospa se toimisi tässä "placeholderina"
+//tätä tarvii varmaan vielä muokata. Alkuperäiset rivit kommenteissa. kuviin lisätty 'varakuva.jpg' jospa se toimisi tässä "placeholderina"
 
 $input = json_decode(file_get_contents('php://input'));
 //$name = filter_var($input->name,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -14,7 +14,7 @@ $price = filter_var($input->hinta,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $category_id = filter_var($input->tuoteryhmanro,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 //pitääkö tehdä kuvakselle tällainen rivi kans?
-$description = filter_var($input->kuvaus,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+//$description = filter_var($input->kuvaus,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 try {
     $db = openDb();
