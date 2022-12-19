@@ -5,11 +5,13 @@ require("db_order_functions.php");
 
 $body = file_get_contents("php://input");
 $dataObject =json_decode($body);
-$kayttajatunnus=strip_tags("jussi");
+$username=$dataObject[0]->kayttajatunnus;
+
+$shoppingCart=$dataObject[1];
 //$kayttajatunnus=$_SESSION['kayttajatunnus'];
 
 
-if(!isset($_POST['kayttajatunnus'])){
+if(!isset($_SESSION['kayttajatunnus'])){
     http_response_code(401);
     echo "User not defined. Give valid username";
     return;
@@ -18,7 +20,7 @@ if(!isset($_POST['kayttajatunnus'])){
 //Määritetään muuttujat
 $tilaupvm=date("Y/m/d");
 
-//Haketaan tietokannasta id_asiakas käyttäjätunnuksesta
+//Haetaan tietokannasta id_asiakas käyttäjätunnuksesta
 try {
     $db = openDb();
     $id_asiakas= checkId_asiakas ($db, $kayttajatunnus);

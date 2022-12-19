@@ -16,7 +16,7 @@ if(isset($_SESSION['kayttajatunnus'])){
 if(!isset($_POST['kayttajatunnus']) || !isset($_POST['salasana'])){
     http_response_code(401);
     echo "User not defined. Give valid username and password rest_login";
-    return;
+    return "User not defined. Give valid username and password rest_login";
 }
 
 $uname= $_POST['kayttajatunnus'];
@@ -31,3 +31,4 @@ if($verified_uname){
     http_response_code(401);
     echo"Wrong username or password.";
 }
+
