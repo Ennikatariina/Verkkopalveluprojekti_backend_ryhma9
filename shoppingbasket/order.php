@@ -11,7 +11,7 @@ $shoppingCart=$dataObject[1];
 //$kayttajatunnus=$_SESSION['kayttajatunnus'];
 
 
-if(!isset($_SESSION['kayttajatunnus'])){
+if(!isset($username)){
     http_response_code(401);
     echo "User not defined. Give valid username";
     return;
@@ -23,7 +23,7 @@ $tilaupvm=date("Y/m/d");
 //Haetaan tietokannasta id_asiakas käyttäjätunnuksesta
 try {
     $db = openDb();
-    $id_asiakas= checkId_asiakas ($db, $kayttajatunnus);
+    $id_asiakas= checkId_asiakas ($db, $username);
 }catch(PDOException $pdoex) {
     returnError($pdoex);
 }
@@ -40,7 +40,7 @@ try {
 //Tallentaa tilausrivi tauluun tilausen tiedot
 try {
     $db = openDb();
-    insertTilausrivi($db, $viimeinenTilausnro, $dataObject);
+    insertTilausrivi($db, $viimeinenTilausnro, $shoppingCart);
 }catch(PDOException $pdoex) {
     returnError($pdoex);
 }
