@@ -14,15 +14,15 @@ function insertcontact($db, $etunimi, $sukunimi, $email, $puhnro, $viesti){
     $statement->execute(array($etunimi, $sukunimi, $email, $puhnro, $viesti));
     $viimeinenViesti=  $db->lastInsertId();
     return $viimeinenViesti;
-    }
-
+}
+    //poimii tiedot
     $etunimi = $dataObject->etunimi;
     $sukunimi = $dataObject->sukunimi;
     $email = $dataObject->email;
     $puhnro = $dataObject->puhnro;
     $viesti = $dataObject->viesti;
 
-
+    //työntää viestit tietokantaan
     insertcontact($db, $etunimi, $sukunimi, $email, $puhnro, $viesti);
 
     
