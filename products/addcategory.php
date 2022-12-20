@@ -6,8 +6,9 @@ require_once "../inc/headers.php";
 
 $input = json_decode(file_get_contents('php://input'));
 //$name = filter_var($input->name,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$name = filter_var($input->tuoteryhmanimi,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+//$name = filter_var($input->tuoteryhmanimi,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+//ääkköset toimivat, kun loppurimpusen jättää pois.
+$name = $input->tuoteryhmanimi;
 try {
     $db = openDb();
     //lisätään tuoteryhmä 
