@@ -5,7 +5,7 @@ require("db_order_functions.php");
 
 $body = file_get_contents("php://input");
 $dataObject =json_decode($body);
-$username=$dataObject[0]->kayttajatunnus;
+$username=$dataObject[0]->kayttajatunnus->username;
 
 $shoppingCart=$dataObject[1];
 //$kayttajatunnus=$_SESSION['kayttajatunnus'];
@@ -19,6 +19,7 @@ if(!isset($username)){
 
 //Määritetään muuttujat
 $tilaupvm=date("Y/m/d");
+
 
 //Haetaan tietokannasta id_asiakas käyttäjätunnuksesta
 try {
