@@ -23,6 +23,11 @@ function insertcontact($db, $etunimi, $sukunimi, $email, $puhnro, $viesti){
     $viesti = $dataObject->viesti;
 
     //työntää viestit tietokantaan
+    try {
     insertcontact($db, $etunimi, $sukunimi, $email, $puhnro, $viesti);
+    } catch(PDOException $pdoex) {
+        returnError($pdoex);
+    }
 
+    ?>
     
