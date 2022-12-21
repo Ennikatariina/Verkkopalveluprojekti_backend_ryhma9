@@ -2,6 +2,8 @@
 require_once "../inc/functions.php";
 require_once "../inc/headers.php";
 
+//Tuotteet esille tuoteryhmittäin frontissa.
+
 //"bäkkärissä luetaan osoitteesta viimeiset osa eli / ja numero."
 $uri = parse_url(filter_input(INPUT_SERVER,'PATH_INFO'),PHP_URL_PATH); //luetaan osoite. Frontista tuleva kutsu.
 $parameters = explode('/',$uri); //"hajottaa osoiteen palasiksi"

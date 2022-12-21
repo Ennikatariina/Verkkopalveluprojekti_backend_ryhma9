@@ -3,11 +3,12 @@
 require_once "../inc/functions.php";
 require_once "../inc/headers.php";
 
+//Tuoteryhmien ylläpito. Tuoteryhmän(kategoria) lisäys frontissa tietokantaan.
 
 $input = json_decode(file_get_contents('php://input'));
 //$name = filter_var($input->name,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 //$name = filter_var($input->tuoteryhmanimi,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-//ääkköset toimivat, kun loppurimpusen jättää pois.
+//ääkköset toimivat, kun loppurimpsun jätti pois.
 $name = $input->tuoteryhmanimi;
 try {
     $db = openDb();
@@ -24,7 +25,7 @@ catch(PDOException $pdoex) {
     returnError($pdoex);
 }
 
-//tämän pitäisi lukea tuoteryhmän nimi ja lisätä tiedot tietokantaan.
+//tämän lukee tuoteryhmän nimen ja lisää tuoteryhman/kategorian tietokantaan.
 //tämä toiminto siis adminille
 
 
