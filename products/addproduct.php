@@ -8,8 +8,6 @@ require_once "../inc/headers.php";
 
 
 $input = json_decode(file_get_contents('php://input'));
-//$name = filter_var($input->name,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-//$name = filter_var($input->tuotenimi,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 //näin toimii ääkköset kun jättää loppurimpsun pois. Lukee tuotenimen, mikä lisätään frontissa
 $name = $input->tuotenimi;
 //lukee hinnan, mikä lisätään frontissa
@@ -17,7 +15,7 @@ $price = filter_var($input->hinta,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 //Lisää mukaan tuoteryhmänro tuotteeseen kun tuote lisätään tuotekategoriaan.
 $category_id = filter_var($input->tuoteryhmanro,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 //tuotteen kuvaus
-//ääkköset toimii kun jättää loppurimpsun pois.
+//ääkköset toimii kun jättää loppurimpsun pois eli siksi erinnäköinen kuin yläpuolella.
 $description = $input->kuvaus;
 
 try {
