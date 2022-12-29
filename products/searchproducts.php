@@ -7,7 +7,7 @@ $uri = parse_url(filter_input(INPUT_SERVER,'PATH_INFO'),PHP_URL_PATH);
 //Parametrit erotellaan (/)
 $parameters = explode('/',$uri);
 
-//
+//etsii tuotteita hakusanan perusteella
 $phrase = $parameters[1];
 
 try {
